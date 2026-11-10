@@ -17,7 +17,7 @@
 
 ---
 
-## B2. Non-Functional Requirements (NFR)
+## Non-Functional Requirements (NFR)
 
 | ID | Type | Non-Functional Requirement Statement | Measurement |
 | :--- | :--- | :--- | :--- |
@@ -30,21 +30,21 @@
 
 ## User Stories and Acceptance Criteria
 
-### User Story 1 (Linked to FR8 & FR9)
+### User Story 1 (connected to FR8 & FR9)
 * **User Story:** As a home cook, I want my pantry list changes to synchronize automatically across my mobile and laptop,
 * so that I can manage my meal plans seamlessly without losing data when switching anotherdevices.
 * **Acceptance Criteria:**
   1. Editing a pantry item on one logged-in device updates the cloud database and reflects on the second device within 10 seconds.
   2. If the user is offline, the application displays a "Saved Locally" status indicator and automatically pushes changes to the cloud upon reconnection.
 
-### User Story 2 (Linked to FR2 & FR3)
+### User Story 2 (connected to FR2 & FR3)
 * **User Story:** As a grocery planner, I want to toggle missing pantry items as out-of-stock,
 * so that the app only suggests recipes I can actually prepare without buying extra items.
 * **Acceptance Criteria:**
   1. Toggling an ingredient to "Out-of-Stock" immediately excludes recipes requiring that specific item from current search recommendations.
   2. Re-toggling the ingredient to "Available" restores relevant recipe recommendations automatically.
 
-### User Story 3 (Linked to FR10)
+### User Story 3 (connected to FR10)
 * **User Story:** As a first-time visitor, I want to search for recipes immediately in Guest Mode without registering an account,
 * so that I can test the app’s features quickly without sign-up friction.
 * **Acceptance Criteria:**
