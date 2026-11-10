@@ -15,7 +15,8 @@ Users and Stakeholders
 2. Secondary Users: Users who require immediate recipe discovery without forced account setup
 3. Stakeholders: System developers and UI/UX designers aiming to deliver seamless data synchronization and effective recipe matching algorithms.
 
-Project Scope 
+Project Scope :
+
 In-Scope 
 1. Implementation of an offline-first local storage system with background cloud synchronization for saved recipes and pantry lists.
 2. Integration of Natural Language Processing (NLP) text processing for dynamic ingredient-recipe matching
