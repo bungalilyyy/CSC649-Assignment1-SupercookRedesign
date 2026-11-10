@@ -5,6 +5,9 @@ The app uses Natural Language Processing techniques by choosing specific ingredi
 Therefore, several issues have to be solved where users may still struggle to decide how to turn leftover food into new meals. 
 If this problem is not going to be solved, it can lead to food waste.
 
+Problem Statement
+Home cooks using recipe applications to prepare meals from available ingredients may encounter missing pantry information, disappearing saved recipes, and recommendations containing unavailable ingredients. For example, Bill S (2023) reported that ingredients entered on one computer did not appear on another computer using the same account, while DJ (2024) reported that saved recipes disappeared and the application reset when switching between apps. ReNew Innovations (2026) also reported that SuperCook suggested recipes using out-of-stock pantry items. These reported problems interrupt meal planning and make it harder for users to identify recipes they can prepare with their current ingredients. Therefore, this project proposes an NLP-assisted recipe recommendation system with ingredient-availability tracking and persistent pantry storage to address these reported difficulties. 
+
 Users and Stakeholders 
 1. Primary Users: Individuals looking to cook meals using available pantry leftovers, reduce grocery bills, and minimize household food waste
 2. Secondary Users: Users who require immediate recipe discovery without forced account setup
