@@ -1,29 +1,51 @@
-A1 Problem Statement
-Home cooks managing leftover kitchen ingredients frequently experience meal planning friction and data loss due to rigid database-matching algorithms and state-management failures in existing mobile applications. Current recipe engines rely on exact ingredient matching, forcing users to supply extensive additional items or recommending recipes containing out-of-stock ingredients, leading to "recipe fatigue" and food waste. Furthermore, mobile implementations of platforms like Supercook suffer from critical sync failures across devices, where saved ingredients and meal plans disappear when switching apps or devices. Without intelligent substitution mechanisms and persistent cloud-to-offline state synchronization, users abandon digital meal planning in favor of buying new groceries, exacerbating household food waste.
+# Part C: Specialized Technology (Natural Language Processing)
 
-A2 Users and Scope
-Main Users & Stakeholders
-Primary Users (Home Cooks & Budget-Conscious Meal Planners): Individuals looking to cook meals using available pantry leftovers, reduce grocery bills, and prevent household food waste.
+## C1. Fundamental Concepts
 
-Secondary Users (First-Time / Casual App Users): Users who need quick, low-friction recipe discovery without forced initial account creation or complex navigation.
+The specialized technology selected for this project is **Natural Language Processing (NLP)** integrated with **Content-Based Filtering** and an **Offline-First Synchronization Architecture**. Traditional culinary databases rely on rigid SQL query execution that requires exact string matches (e.g., matching the exact term "chicken" with "chicken"). When home cooks input arbitrary, sparse, or non-standard leftover ingredient descriptions (e.g., "200g organic fresh chicken breast" or "diced tomatoes"), static database filters fail to match recipe items, resulting in search failures and user frustration (Peng, 2024).
 
-Stakeholders: Mobile system developers, UI/UX designers, and sustainability/food-waste reduction researchers.
+To resolve these limitations, modern meal planning systems apply NLP pre-processing pipelines within a Vector Space Model (VSM) to transform unstructured ingredient text into continuous, high-dimensional numerical weight matrices (Pal, 2023). As illustrated in Figure 1, the system executes a four-stage processing pipeline:
 
-Project Scope
-In-Scope:
+1. **Tokenization and Normalization:** User-inputted ingredient strings are converted to lowercase and split into atomic tokens (e.g., "Fresh Diced Tomatoes" -> `['fresh', 'diced', 'tomatoes']`) (Pal, 2023).
+2. **Stop-Word Removal and Aspect Extraction:** Non-essential descriptors, quantities, and measurement units (e.g., "grams", "chopped", "fresh") are stripped to isolate the core ingredient noun (`['tomato']`) (Pal, 2023).
+3. **TF-IDF Vectorization:** Cleaned ingredient lists are transformed into numerical weight matrices using Term Frequency-Inverse Document Frequency (TF-IDF) (Pal, 2023).
+4. **Cosine Similarity Computation:** The engine computes the mathematical proximity between the user's active pantry vector (A) and candidate recipe vectors (B) using the formula `Cosine(A, B) = (A · B) / (||A|| × ||B||)` to rank recipes by similarity percentage (Pal, 2023; Ruiz-Rincón & Galpin, 2024).
 
-Formulation of an offline-first state synchronization architecture using local caching and automated cloud sync to prevent data loss.
-
-Integration of Natural Language Processing (NLP) / Intelligent Recommender algorithms for flexible ingredient substitution matching.
-
-Implementation of an out-of-stock toggle system to dynamically filter unusable inventory.
-
-Redesign of onboarding UX flow featuring an unauthenticated "Guest Mode" and simplified search filters.
-
-Out-of-Scope:
-
-Automated direct integration with third-party grocery delivery service APIs (e.g., Instacart, Lotus's).
-
-Real-time hardware-based automated fridge sensors/IoT hardware integration.
-
-Paid subscription/monetization payment gateway processing
+```text
++---------------------------------------------------------------------+
+|                       INPUT: Raw Pantry Text                          |
+|             (e.g., "Fresh Diced Tomatoes, 250g Chicken")              |
++---------------------------------------------------------------------+
+                                   |
+                                   v
++---------------------------------------------------------------------+
+| Stage 1: Tokenization & Normalization                                 |
+| - Convert text to lower-case                                          |
+| - Split text into atomic tokens: ['fresh', 'diced', 'tomatoes']       |
++---------------------------------------------------------------------+
+                                   |
+                                   v
++---------------------------------------------------------------------+
+| Stage 2: Stop-Word Removal & Aspect/Descriptor Filtering              |
+| - Filter non-essential attributes (units, quantities, adjectives)     |
+| - Isolate core ingredient noun: Cleaned = ['tomato', 'chicken']       |
++---------------------------------------------------------------------+
+                                   |
+                                   v
++---------------------------------------------------------------------+
+| Stage 3: TF-IDF Vectorization                                         |
+| - Convert cleaned ingredient tokens into numerical weight matrices    |
++---------------------------------------------------------------------+
+                                   |
+                                   v
++---------------------------------------------------------------------+
+| Stage 4: Cosine Similarity Engine                                     |
+| - Compute mathematical distance between pantry and recipe vectors     |
+| - Output similarity score: Cosine(A, B) = (A . B) / (||A|| * ||B||)   |
++---------------------------------------------------------------------+
+                                   |
+                                   v
++---------------------------------------------------------------------+
+|                      OUTPUT: Ranked Recipe List                       |
+|        (e.g., Recipe 1: 81.65% Match, Recipe 2: 0.00% Match)          |
++---------------------------------------------------------------------+
