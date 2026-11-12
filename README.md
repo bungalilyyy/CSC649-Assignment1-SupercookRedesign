@@ -1,22 +1,19 @@
-Supercook UI/UX & Intelligent Recipe Engine Redesign
+# Supercook UI/UX & Intelligent Recipe Engine Redesign
 
-📌 Project Overview
-A comprehensive proposal addressing data synchronization failures, rigid ingredient matching, and onboarding friction in leftover-based recipe 
-discovery applications.
+**Course:** CSC649 — Special Topics in Computer Science (Assignment 1)  
+**Author:** Nur ‘Aliyah binti T.N Winda Wijaya (2025471362)  
+**Status:** Completed (Documentation & System Design)
 
-❓ Problem Statement
-Home cooks managing leftover kitchen ingredients frequently experience meal planning friction and data loss due to rigid database-matching 
-algorithms and state-management failures in existing mobile applications. Current recipe engines rely on exact ingredient matching, 
-forcing users to supply extensive additional items or recommending recipes containing out-of-stock ingredients, leading to "recipe fatigue" 
-and food waste. Furthermore, mobile implementations of platforms like Supercook suffer from critical sync failures across devices, where 
-saved ingredients and meal plans disappear when switching apps or devices.
+---
 
-🔗 Documentation Links
-- 📄 [Part A: Problem Formulation](docs/problem-formulation.md)
-- 📋 [Part B: Requirements & User Stories](docs/requirements.md)
-- 🧠 [Part C: Specialized Technology Brief](docs/technology-concepts.md)
+## Project Overview
 
-👤 Author Information
-- Name: NUR ‘ALIYAH BINTI T.N WINDA WIJAYA
-- Student ID: 2025471362
-- Lecturer: Ts. Dr. Ahmad Faiz Bin Ghazali
+Home cooks experience missing pantry data, disappearing saved recipes, and rigid out-of-stock recipe suggestions in mobile recipe discovery apps. This project proposes an enhanced recipe discovery architecture powered by **Natural Language Processing (NLP)**, **Content-Based Filtering**, and an **Offline-First Cloud State Synchronization** engine to reduce household food waste and improve cross-device reliability[cite: 7].
+
+---
+
+## Documentation Structure
+
+* [Part A: Problem Formulation](docs/problem-formulation.md) — Problem statement, target users, stakeholders, and project scope[cite: 7, 8].
+* [Part B: Requirements Specification](docs/requirements.md) — Functional requirements (FR1–FR10), non-functional requirements (NFR1–NFR4), and user stories[cite: 7, 8].
+* [Part C: Specialized Technology](docs/technology-concepts.md) — NLP pipeline (TF-IDF & Cosine Similarity), offline-first synchronization architecture, trade-offs, and academic references[cite: 7, 8].
